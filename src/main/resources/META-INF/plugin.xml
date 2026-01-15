@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>com.github.sudohackin.bootyaml</id>
+    <name>Spring Boot YAML Autocomplete</name>
+    <vendor>sudoHackIn</vendor>
+
+    <description><![CDATA[
+    Provides intelligent autocomplete for Spring Boot application.yaml files based on available autoconfigurations.
+
+    Features:
+    - Autocomplete for Spring Boot configuration properties
+    - Support for nested properties
+    - Integration with Spring Boot autoconfiguration metadata
+    - Validation and documentation hints
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>org.jetbrains.plugins.yaml</depends>
+    <depends>com.intellij.gradle</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Completion Contributor -->
+        <completion.contributor
+                language="yaml"
+                implementationClass="com.github.sudohackin.bootyaml.completion.SpringBootYamlCompletionContributor"/>
+
+        <!-- Configuration Metadata Service -->
+        <projectService
+                serviceImplementation="com.github.sudohackin.bootyaml.service.ConfigurationMetadataService"/>
+    </extensions>
+
+    <projectListeners>
+        <listener class="com.github.sudohackin.bootyaml.listener.ProjectDependencyChangeListener"
+                  topic="com.intellij.openapi.externalSystem.model.task.ExternalSystemTaskNotificationListener"/>
+    </projectListeners>
+</idea-plugin>

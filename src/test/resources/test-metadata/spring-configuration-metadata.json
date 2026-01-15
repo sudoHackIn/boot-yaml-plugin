@@ -1,0 +1,148 @@
+{
+  "groups": [
+    {
+      "name": "server",
+      "type": "org.springframework.boot.autoconfigure.web.ServerProperties",
+      "description": "Server configuration properties"
+    },
+    {
+      "name": "spring.datasource",
+      "type": "org.springframework.boot.autoconfigure.jdbc.DataSourceProperties",
+      "description": "Database connection properties"
+    },
+    {
+      "name": "spring.jpa",
+      "type": "org.springframework.boot.autoconfigure.orm.jpa.JpaProperties",
+      "description": "JPA configuration properties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "server.port",
+      "type": "java.lang.Integer",
+      "description": "Server HTTP port",
+      "defaultValue": 8080
+    },
+    {
+      "name": "server.address",
+      "type": "java.net.InetAddress",
+      "description": "Network address to which the server should bind"
+    },
+    {
+      "name": "server.servlet.context-path",
+      "type": "java.lang.String",
+      "description": "Context path of the application",
+      "defaultValue": "/"
+    },
+    {
+      "name": "server.servlet.session.timeout",
+      "type": "java.time.Duration",
+      "description": "Session timeout",
+      "defaultValue": "30m"
+    },
+    {
+      "name": "spring.datasource.url",
+      "type": "java.lang.String",
+      "description": "JDBC URL of the database"
+    },
+    {
+      "name": "spring.datasource.username",
+      "type": "java.lang.String",
+      "description": "Login username of the database"
+    },
+    {
+      "name": "spring.datasource.password",
+      "type": "java.lang.String",
+      "description": "Login password of the database"
+    },
+    {
+      "name": "spring.datasource.driver-class-name",
+      "type": "java.lang.String",
+      "description": "Fully qualified name of the JDBC driver"
+    },
+    {
+      "name": "spring.jpa.hibernate.ddl-auto",
+      "type": "java.lang.String",
+      "description": "DDL mode"
+    },
+    {
+      "name": "spring.jpa.show-sql",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable logging of SQL statements",
+      "defaultValue": false
+    },
+    {
+      "name": "spring.jpa.properties.hibernate.dialect",
+      "type": "java.lang.String",
+      "description": "Hibernate SQL dialect"
+    },
+    {
+      "name": "logging.level.root",
+      "type": "java.lang.String",
+      "description": "Root logging level",
+      "defaultValue": "INFO"
+    },
+    {
+      "name": "logging.level.org.springframework.web",
+      "type": "java.lang.String",
+      "description": "Logging level for Spring Web"
+    },
+    {
+      "name": "management.endpoints.web.exposure.include",
+      "type": "java.util.List",
+      "description": "Endpoint IDs that should be included or '*' for all"
+    }
+  ],
+  "hints": [
+    {
+      "name": "spring.jpa.hibernate.ddl-auto",
+      "values": [
+        {
+          "value": "none",
+          "description": "No database initialization"
+        },
+        {
+          "value": "validate",
+          "description": "Validate the schema, make no changes to the database"
+        },
+        {
+          "value": "update",
+          "description": "Update the schema if necessary"
+        },
+        {
+          "value": "create",
+          "description": "Create the schema and destroy previous data"
+        },
+        {
+          "value": "create-drop",
+          "description": "Create and then destroy the schema at the end of the session"
+        }
+      ]
+    },
+    {
+      "name": "logging.level.root",
+      "values": [
+        {
+          "value": "TRACE",
+          "description": "Trace level logging"
+        },
+        {
+          "value": "DEBUG",
+          "description": "Debug level logging"
+        },
+        {
+          "value": "INFO",
+          "description": "Info level logging"
+        },
+        {
+          "value": "WARN",
+          "description": "Warning level logging"
+        },
+        {
+          "value": "ERROR",
+          "description": "Error level logging"
+        }
+      ]
+    }
+  ]
+}
